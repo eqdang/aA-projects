@@ -1,0 +1,14 @@
+html, head, body, header, img, nav, h2, ol, ul, li, p, section, h1, form, input, footer, aside, figure, figcaption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    text-align: inherit;
+    text-decoration: inherit;
+    color: inherit;
+    font-size: inherit;
+    list-style: none;
+    line-height: 1.5;
+    width: 100%;
+}
+
