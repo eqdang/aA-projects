@@ -1,0 +1,19 @@
+/* PUT FLUID GRID CODE HERE */
+.cf:after {
+  display: block;
+  clear: both;
+  background: pink;
+}
+
+.cf2:after {
+  display: block;
+  clear: both;
+  background: pink;
+}
+
+header:after {
+  content: "";
+  display: block;
+  clear: both;
+  background: blue;
+}
