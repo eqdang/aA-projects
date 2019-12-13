@@ -1,0 +1,38 @@
+<h1>Edit the Cat</h1>
+
+<form action="<%= cat_url(@cat) %>" method="post">
+    <input type="hidden" name="_method" value="put">
+
+    <label>
+        Name
+        <input type="text" name="cat[name]" value="<%= @cat.name %>">
+    </label>
+    <label>
+        Sex
+        Male <input type="radio" name="cat[sex]" value="M" <%= @cat.sex == "M" ? "checked" : "" %>>
+        Female <input type="radio" name="cat[sex]" value="F" <%= @cat.sex == "F" ? "checked" : "" %>>
+
+    </label>
+    <label for="cat-color">Color</label>
+        <select name="cat[color]" id="cat-color">
+            <option value="">"Select a Color"</option>
+            <option value="red">"Red"</option>
+            <option value="green">"Green"</option>
+            <option value="blue">"Blue"</option>
+        </select>
+    </label>
+    <label>
+        Birthdate
+        <input type="date" name="cat[birth_date]" value="<%= @cat.birth_date %>">
+    </label>
+    <label>
+        Description
+        <textarea name="cat[description]"> <%= @cat.description %> </textarea>
+    </label>
+    
+
+     <button type="submit">Edit</button>
+</form>
+
+
+

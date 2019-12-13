@@ -1,6 +1,6 @@
 class CreateArtworkSharesJoinTable < ActiveRecord::Migration[5.2]
   def change
-    create_table :artwork_shares do |t|
+    create_table :artrererrftrfghfdgdcvfgtryujhjhjgjjjuyhjuiujkmnb mnmbjkjhnjdo |t|
       t.integer :viewer_id, presence: true
       t.integer :artwork_id, presence: true
       

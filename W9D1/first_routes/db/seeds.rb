@@ -10,9 +10,27 @@
     #artwork_share
     #artwork
 
-    users = User.create([{ username: 'eqdang'}, { username: 'rapkat10'}])
+    users = User.create([
+        { username: 'elizabeth'}, 
+        { username: 'rapkat'},
+        { username: 'andy'},
+        { username: 'trevor'}])
     
-    artworks = Artwork.create([{ title: 'eqdang''s art', image_url: 'link1', artist_id: 1, id: 100 }, { title: 'rapkat10''s art', image_url: 'link_1', artist_id: 2, id: 200 }])
+    artworks = Artwork.create([
+        { title: 'dang, it''s art', image_url: 'img1.link', artist_id: users[0].id }, 
+        { title: 'rapkat10''s art', image_url: 'img2.link', artist_id: users[1].id },
+        { title: 'sir stache', image_url: 'img3.link', artist_id: users[2].id }])
 
-    artwork_shares = ArtworkShare.create([{ artwork_id: 100, viewer_id: 1}, { artwork_id: 200, viewer_id: 2 }])
+    artwork_shares = ArtworkShare.create([
+        { artwork_id: artworks[2].id, viewer_id: users[0].id },
+        { artwork_id: artworks[2].id, viewer_id: users[1].id },
+        { artwork_id: artworks[2].id, viewer_id: users[3].id },
+        { artwork_id: artworks[0].id, viewer_id: users[0].id },
+        { artwork_id: artworks[0].id, viewer_id: users[2].id }])
+
+    comments = Comment.create([
+        { user_id: users[0].id, artwork_id: artworks[2].id, body: 'fan-stache-tic teacher' },
+        { user_id: users[3].id, artwork_id: artworks[1].id, body: 'what a beauty' },
+        { user_id: users[3].id, artwork_id: artworks[2].id, body: 'i mustache you a question' },
+        { user_id: users[1].id, artwork_id: artworks[0].id, body: 'dangg, that'' art' }])
     

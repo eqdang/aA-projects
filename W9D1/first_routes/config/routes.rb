@@ -25,7 +25,6 @@ Rails.application.routes.draw do
 
     delete '/artworks/:id', to: 'artworks#destroy', as: 'destroy_artwork'
 
-
     get '/artwork_shares', to: 'artwork_shares#index', as: 'artwork_shares'
   
     post '/artwork_shares', to: 'artwork_shares#create', as: 'create_artwork_shares'
@@ -33,5 +32,13 @@ Rails.application.routes.draw do
     delete '/artwork_shares/:id', to: 'artwork_shares#destroy', as: 'destroy_artwork_shares'
 
     resources :artwork_shares, only: [:index, :create, :destroy]
+    
+    get '/comments', to: 'comments#index', as: 'comments_index'
+    
+    post '/comments', to: 'comments#create', as: 'create_comment'
+    
+    delete '/comments/:id', to: 'comments#destroy', as: 'destroy_comment'
+
+
 
 end

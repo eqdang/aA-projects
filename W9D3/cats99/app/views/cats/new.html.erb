@@ -1,0 +1,33 @@
+<h1>Cat Creation</h1>
+
+<form action="<%= cat_url(cat) %>" method="post">
+    <label>
+        Name
+        <input type="text" name="cat[name]" value="<%= cat.name %>">
+    </label>
+    <label>
+        Sex
+        <input type="radio" name="cat[sex]" value="<%= cat.sex %>">
+    </label>
+    <label for="cat-color">Color</label>
+        <select name="cat[color]" id="cat-color">
+            <option value="">"Select a Color"</option>
+            <option value="red">"Red"</option>
+            <option value="green">"Green"</option>
+            <option value="blue">"Blue"</option>
+        </select>
+    </label>
+    <label>
+        Birthdate
+        <input type="date" name="cat[birth_date]" value="<%= cat.birth_date %>">
+    </label>
+    <label>
+        Description
+        <textarea name="cat[description]"> <%= cat.description %> </textarea>
+    </label>
+    
+    <input type="submit" value="<%=SUBMIT %>">
+</form>
+
+
+
