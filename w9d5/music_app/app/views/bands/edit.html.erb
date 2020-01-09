@@ -1,0 +1,20 @@
+<h1>Edit <%= @band.name %></h1>
+
+
+<form action="<%= band_url(@band) %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+   <input type="hidden" name="authenticity_token" value="<%=form_aunthenticity_token%>">
+  <label for="band_name">Band Name:
+    <input 
+      type="text" 
+      id="band_name" 
+      name="band[name]" 
+      value="<%= @band.name %>"
+    >
+  </label>
+
+  <input type="submit" value="Update Band">
+</form>
+
+
+<%= link_to "Cancel", bands_url %>

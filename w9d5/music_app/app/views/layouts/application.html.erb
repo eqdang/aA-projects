@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  <% if logged_in? %>
+  <h3>Hi, <%= current_user.as_json["email"] %></h3>
+  <%= button_to "Logout", session_url, method: :delete %>
+<% else %>
+  <%= link_to "Log in", new_session_url, action: "create" %>
+  <%= link_to "Sign up", new_user_url, action: "new" %>
+<% end %>
+
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<% if flash[:errors] %>
+  <p><%= flash[:errors].join(", ") %></p>
+<% end %>
+
+<%= yield %>
+  </body>
+</html>
