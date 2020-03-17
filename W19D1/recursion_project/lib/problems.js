@@ -56,7 +56,9 @@ function sumArray(array) {
 // reverseString("internet")    // => "tenretni"
 // reverseString("friends")     // => "sdneirf"
 function reverseString(str) {
-
+	if (str.length === 0) {return str};
+	if (str.length === 1) {return str[0]};
+	if (str.length > 1) {return reverseString(str.slice(1)) + str[0]};
 }
 
 
@@ -77,7 +79,14 @@ function reverseString(str) {
 // pow(3, 4)    // => 81
 // pow(2, -5)   // => 0.03125
 function pow(base, exponent) {
-
+	if (exponent === 0) {return 1};
+	if (exponent === 1) {return base};
+	if (exponent < 0) {
+		return 1/pow(base, -exponent);
+	};
+	if (exponent > 1) {
+		return base * pow(base, (exponent-1));
+	};
 }
 
 
@@ -110,7 +119,14 @@ function pow(base, exponent) {
 //     2-dimensional array: [['some data']]
 //     3-dimensional array: [[['some data']]]
 function flatten(data) {
-
+	let flattened = [];
+	if (Array.isArray(data) === false) {return [data]};
+		data.forEach((el) => {
+			// flattened.push(flatten(el)); 
+			let flat = flatten(el);
+			flattened.push(...flat);
+		});
+		return flattened;
 }
 
 // Write a function, fileFinder(directories, targetFile), that accepts an object representing directories and a string respresenting a filename.
@@ -153,7 +169,12 @@ function flatten(data) {
 // fileFinder(desktop, 'everlong.flac');            // => true
 // fileFinder(desktop, 'sequoia.jpeg');             // => false
 function fileFinder(directories, targetFile) {
-
+	for (let file in directories) {
+		if (file === targetFile || fileFinder(directories[file], targetFile)) {
+			return true;
+		}
+	}
+	return false;
 }
 
 
@@ -167,7 +188,15 @@ function fileFinder(directories, targetFile) {
 // pathFinder(desktop, 'everlong.flac'));       // => '/music/genres/rock/everlong.flac'
 // pathFinder(desktop, 'honeybadger.png'));     // => null
 function pathFinder(directories, targetFile) {
+	for (let file in directories) {
+		if (file === targetFile) {return '/' + targetFile};
 
+		let subpath = pathFinder(directories[file], targetFile); 
+		if (subpath !== null) {
+			return file + subpath;
+		}
+	}
+	return null;
 }
 
 
