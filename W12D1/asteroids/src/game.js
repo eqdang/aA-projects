@@ -1,5 +1,5 @@
-const Asteroid = require("./asteroid.js");
-
+// const Asteroid = require("./asteroid.js");
+const Dictionary = require("./dictionary.js")
 
 const DEFAULT = {
   DIM_X: 1000,
@@ -14,7 +14,7 @@ function Game () {
 
 Game.prototype.addAsteroids = function () {
   for (let i = 0; i < DEFAULT.NUM_ASTEROIDS; i++) {
-    let ast = new Asteroid(this.randomPosition())
+    let ast = new Dictionary(this.randomPosition())
     this.asteroids.push(ast);
   }
 }
