@@ -1,0 +1,1 @@
+json.array! item, :name, :price, :happiness, :image_url
