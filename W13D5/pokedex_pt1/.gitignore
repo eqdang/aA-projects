@@ -17,3 +17,11 @@
 /yarn-error.log
 
 .byebug_history
+<<<<<<< HEAD
+=======
+
+vendor/bundle
+/vendor/bundle
+
+
+>>>>>>> 42df1f1c823060e0440809f36e78f4fa51438ebf
